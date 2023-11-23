@@ -1,4 +1,4 @@
-//Ariel Berk
+
 public abstract class LivingBeing{
     //Attributes
     private String name; 
