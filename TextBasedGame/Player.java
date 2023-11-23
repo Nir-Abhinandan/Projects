@@ -1,4 +1,4 @@
-//Ariel Berk
+
 public class Player extends LivingBeing{
     private BackPack bp;  
     private String name;
