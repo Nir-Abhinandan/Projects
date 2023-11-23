@@ -1,4 +1,4 @@
-//Leo Shraybman
+
 import java.util.ArrayList;
 public class World{
     private ArrayList<Room> rooms;
