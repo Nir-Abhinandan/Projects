@@ -1,4 +1,4 @@
-//Ariel Berk
+
 public class Creature extends LivingBeing{
     //attributes 
     private String placeInTime; 
