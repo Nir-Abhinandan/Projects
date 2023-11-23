@@ -1,4 +1,4 @@
-//Leo Shraybman
+
 public class RoomExit{
     //Attributes
     private String direction;
