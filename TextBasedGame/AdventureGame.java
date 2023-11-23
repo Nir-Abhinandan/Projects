@@ -1,4 +1,3 @@
-//By Roger Blake and Leo Shraybman
 
 import java.util.Scanner;
 import java.util.Arrays;
