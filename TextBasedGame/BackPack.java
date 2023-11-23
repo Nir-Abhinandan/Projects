@@ -1,4 +1,4 @@
-//By Roger Blake
+
 import java.util.*;
 public class BackPack extends ItemList {
     //attributes
