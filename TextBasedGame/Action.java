@@ -1,4 +1,4 @@
-//Leo Shraybman
+
 public class Action{
     //Attributes
     private String name;
