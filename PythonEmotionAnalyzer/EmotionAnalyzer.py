@@ -30,13 +30,17 @@ def get_reaction(score):
 #This is where everything happens to create the bot
 
 def main():
-    while True:
-        user_input = input('what do you want to say?: ') 
+    x=True
+    while x:
+        user_input = input('what do you want to say?: ')
+        if user_input=="stop":
+            x=False
         score = get_sentiment(user_input)
         reaction = get_reaction(score)
         print(reaction)
         print(score)
         print('________')
+        
         
 if __name__ == "__main__":
     main()
