@@ -35,6 +35,7 @@ def main():
         user_input = input('what do you want to say?: ')
         if user_input=="stop":
             x=False
+            break
         score = get_sentiment(user_input)
         reaction = get_reaction(score)
         print(reaction)
