@@ -1,0 +1,46 @@
+import pygame
+import sys
+import math
+
+
+pygame.init()
+
+
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Pygame Circle Animation")
+
+animation_speed = 144
+
+
+circle_radius = 27
+angle = 90
+
+
+clock = pygame.time.Clock()
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    
+    angle += 0.02 
+    x = int(width / 2 + 100 * math.sin(angle))
+    y = int(height / 2 + 100 * math.cos(angle))
+
+
+    screen.fill((255, 255, 255))
+
+    
+    
+    pygame.draw.circle(screen, (21, 112, 255), (x, y), circle_radius)
+
+
+    # w/out this there is no display
+    pygame.display.flip()
+
+ 
+    clock.tick(animation_speed)
