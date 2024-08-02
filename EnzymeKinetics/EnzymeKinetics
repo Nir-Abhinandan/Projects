@@ -1,0 +1,36 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+def simulate_data(v_max, k_m, noise_level=0.01, num_points=20):
+    substrate_concentration = np.linspace(0.1, 10, num_points)
+    reaction_rate = (v_max * substrate_concentration) / (k_m + substrate_concentration)
+    noisy_reaction_rate = reaction_rate + np.random.normal(0, noise_level, size=reaction_rate.shape)
+    return substrate_concentration, noisy_reaction_rate
+
+def michaelis_menten(S, V_max, K_m):
+    return (V_max * S) / (K_m + S)
+
+def fit_michaelis_menten(substrate_concentration, reaction_rate):
+    popt, pcov = curve_fit(michaelis_menten, substrate_concentration, reaction_rate, p0=[1, 1])
+    V_max, K_m = popt
+    return V_max, K_m
+
+def plot_data_and_fit(substrate_concentration, reaction_rate, V_max, K_m):
+    plt.figure(figsize=(10, 6))
+    plt.scatter(substrate_concentration, reaction_rate, color='blue', label='Experimental Data')
+    fitted_reaction_rate = michaelis_menten(substrate_concentration, V_max, K_m)
+    plt.plot(substrate_concentration, fitted_reaction_rate, color='red', label=f'Fit: $V_{{max}}$={V_max:.2f}, $K_m$={K_m:.2f}')
+    plt.xlabel('Substrate Concentration [S]')
+    plt.ylabel('Reaction Rate [V]')
+    plt.title('Enzyme Kinetics: Michaelis-Menten Fit')
+    plt.legend()
+    plt.show()
+
+
+#Initation
+v_max = 10
+k_m = 2
+substrate_concentration, reaction_rate = simulate_data(v_max, k_m)
+V_max, K_m = fit_michaelis_menten(substrate_concentration, reaction_rate)
+plot_data_and_fit(substrate_concentration, reaction_rate, V_max, K_m)
